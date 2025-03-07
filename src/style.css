@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap');
+
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  height: 100%;
+}
+
+.left,
+.right {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+/* Monaco Editor 代码高亮 */
+.monaco-editor .myLineDecoration {
+  background-color: yellow !important;  /* ✅ 添加背景色 */
+  display: block;
+  width: 100%;
+}
+
+
+.left {
+  flex: 1;
+  border-right: 2px solid #888;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.right {
+  flex: 2;
+}
+
+#graph {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+svg text {
+  pointer-events: none;
+  user-select: none;
+  font-family: sans-serif;
+}
+
+.indexnode:hover {
+  cursor: grab;
+}
+
+.indexnode:active {
+  cursor: grabbing;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-bottom: 2px solid #888;
+  font-size: 25px;
+  padding: 10px;
+}
+
+.header h1 {
+  font-family: "Noto Sans TC", serif;
+  font-weight: 600;
+
+}
+
+.header nav ul {
+  display: flex;
+  align-items: center;
+}
+
+.header nav ul li {
+  margin-left: 10px;
+}
+
+.btn {
+  font-size: 20px;
+  background: #fff;
+  border: 1px solid #000;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.editor-con {
+  flex: 1;
+}
+
+.pagebar {
+  display: flex;
+  background-color: #888;
+}
+
+.pagebtn {
+  height: 100%;
+  background: transparent;
+  flex: 1;
+  font-size: 15px;
+  line-height: 20px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+#input-area {
+  background-color: #fff;
+}
+
+#output-area {
+  background-color: #fff;
+  padding: 5px;
+}
+
+.console {
+  height: 100%;
+}
+
+.active-btn {
+  background-color: #fff;
+  border-top: 2px solid #888;
+  border-left: 2px solid #888;
+  border-radius: 5px 5px 0 0;
+  color: #000;
+}
+
+#output-txt{
+  padding: 0;
+  margin: 0;
+  font-family: Consolas, 'Courier New', monospace; 
+  font-weight: normal; 
+  font-size: 14px;
+  line-height: 1.5em;
+  white-space: pre-line; /* 讓換行行為更像程式碼 */
+
+}
