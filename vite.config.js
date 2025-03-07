@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 import monacoEditorEsmPlugin from "vite-plugin-monaco-editor-esm";
 import { resolve } from "path";
-import "./style.css";
-import "./reset.css";
+// import "./style.css";
+// import "./reset.css";
 
 
 export default defineConfig({
