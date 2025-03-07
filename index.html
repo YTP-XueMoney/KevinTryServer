@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+  <head>
+    <script>self["MonacoEnvironment"] = (function (paths) {
+          return {
+            globalAPI: false,
+            getWorkerUrl : function (moduleId, label) {
+              var result =  paths[label];
+              if (/^((http:)|(https:)|(file:)|(\/\/))/.test(result)) {
+                var currentUrl = String(window.location);
+                var currentOrigin = currentUrl.substr(0, currentUrl.length - window.location.hash.length - window.location.search.length - window.location.pathname.length);
+                if (result.substring(0, currentOrigin.length) !== currentOrigin) {
+                  var js = '/*' + label + '*/importScripts("' + result + '");';
+                  var blob = new Blob([js], { type: 'application/javascript' });
+                  return URL.createObjectURL(blob);
+                }
+              }
+              return result;
+            }
+          };
+        })({
+  "editorWorkerService": "/monacoeditorwork/editor.worker.bundle.js",
+  "css": "/monacoeditorwork/css.worker.bundle.js",
+  "html": "/monacoeditorwork/html.worker.bundle.js",
+  "json": "/monacoeditorwork/json.worker.bundle.js",
+  "typescript": "/monacoeditorwork/ts.worker.bundle.js",
+  "javascript": "/monacoeditorwork/ts.worker.bundle.js",
+  "less": "/monacoeditorwork/css.worker.bundle.js",
+  "scss": "/monacoeditorwork/css.worker.bundle.js",
+  "handlebars": "/monacoeditorwork/html.worker.bundle.js",
+  "razor": "/monacoeditorwork/html.worker.bundle.js"
+});</script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <title>算法漫步</title>
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
+    <script type="module" crossorigin src="/assets/index-SZgVXaxk.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-sYfUV0-a.css">
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>算法漫步</h1>
+      <nav>
+        <ul>
+          <li><button class="btn" id="run">run</button></li>
+          <li><button class="btn" id="confirmButton">step</button></li>
+          <li><button class="btn" id="stop">stop</button></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="main">
+      <div class="left">
+        <div id="code-editor" class="editor-con"></div>
+        <div class="pagebar">
+          <button class="pagebtn" id="input-area-btn">input</button>
+          <button class="pagebtn" id="output-area-btn">output</button>
+        </div>
+        <div class="editor-con">
+          <div id="input-area" class="console"></div>
+          <div id="output-area" class="console">
+            <p id="output-txt"></p>
+          </div>
+        </div>
+      </div>
+      <div class="right">
+        <div id="graph">
+          <svg
+            id="mySvg"
+            version="1.1"
+            baseProfile="full"
+            xmlns="http://www.w3.org/2000/svg"
+            width="100%"
+            height="100%"
+          >
+            <defs>
+              <!-- A marker to be used as an arrowhead -->
+              <marker
+                id="arrow"
+                viewBox="0 0 10 10"
+                refX="5"
+                refY="5"
+                markerWidth="4"
+                markerHeight="4"
+                fill="gray"
+                orient="auto-start-reverse"
+              >
+                <path d="M 0 0 L 10 5 L 0 10 z" />
+              </marker>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script type="module" src="./src/main.js"></script> -->
+  </body>
+</html>
